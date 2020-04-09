@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8"/>
+		<script type="text/javascript" src="/socket.io/socket.io.js"></script>
+		<script type="text/javascript" src="js/client.js"></script>
+		<script type="text/javascript">
+			function sendQuery(){
+				socket.emit("query", document.getElementById("q").value);
+			}
+		</script>
+	</head>
+	<body>
+		<div>
+			<textarea id="q" rows="8" cols="50"></textarea>
+		</div>
+		<div>
+			<button type="button" onclick="sendQuery();">クエリ実行</button>
+		</div>
+	</body>
+</html>
