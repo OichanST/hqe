@@ -4,18 +4,38 @@
 		<meta charset="UTF-8"/>
 		<script type="text/javascript" src="/socket.io/socket.io.js"></script>
 		<script type="text/javascript" src="js/client.js"></script>
+		<script type="text/javascript" src="js/domWrapper.js"></script>
 		<script type="text/javascript">
 			function sendQuery(){
 				socket.emit("query", document.getElementById("q").value);
 			}
 		</script>
+		<style type="text/css">
+			#rows{
+				border-spacing:0;
+				border-top:1px solid black;
+				border-left:1px solid black;
+			}
+			#rows th{
+				background-color:yellow;
+			}
+			#rows th,
+			#rows td{
+				border-right:1px solid black;
+				border-bottom:1px solid black;
+				padding-left:0.4em;
+				padding-right:0.4em;
+			}
+		</style>
 	</head>
 	<body>
 		<div>
-			<textarea id="q" rows="8" cols="50"></textarea>
+			<textarea id="q" rows="8" cols="100"></textarea>
 		</div>
 		<div>
 			<button type="button" onclick="sendQuery();">クエリ実行</button>
 		</div>
+		<div id="cnt"></div>
+		<table id="rows"></table>
 	</body>
 </html>
