@@ -2,7 +2,7 @@
 // Express Package
 const express = require("express");
 const app = express();
-// Server\’z
+// Serveræ§‹ç¯‰
 const server = require("http").Server(app);
 const pg = require("pg");
 const conn = 
@@ -12,9 +12,9 @@ const pool = new pg.Pool({
 	connectionString:conn
 });
 /*----------------------------------------------------------------------------*/
-// IO Socket€”õ
+// IO Socketæº–å‚™
 const io = require("socket.io")(server);
-// Ú‘±ˆ—
+// æ¥ç¶šæ™‚å‡¦ç†
 io.on("connection", function(socket){
 	socket.on("query", function(query){
 		pool.query(query)
@@ -27,11 +27,12 @@ io.on("connection", function(socket){
 		});
 	});
 });
-// ŒöŠJƒtƒHƒ‹ƒ_İ’uŠG
+const PORT = process.env.PORT || 8080;
+// å…¬é–‹ãƒ•ã‚©ãƒ«ãƒ€è¨­å®š
 app.use(express.static(__dirname + '/public'));
-// ƒT[ƒo[‹N“®
-server.listen(8080,
+// ã‚µãƒ¼ãƒãƒ¼èµ·å‹•
+server.listen(PORT,
 	function(){
-		console.log("Server on port %d", 8080);
+		console.log("Server on port %d", PORT);
 	}
 );
