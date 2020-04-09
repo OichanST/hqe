@@ -6,8 +6,8 @@ const app = express();
 const server = require("http").Server(app);
 const pg = require("pg");
 const conn = 
-'postgres://postgres:br9qs6wg@localhost:5432/postgres';
-//'postgres://iitrojblaqujzf:faf2bf8e7956a51370d06b56f766c20e919530b223b556e9abc05198ac142423@ec2-52-6-143-153.compute-1.amazonaws.com:5432/ddgdel8v3uejk3';
+//'postgres://postgres:br9qs6wg@localhost:5432/postgres';
+'postgres://iitrojblaqujzf:faf2bf8e7956a51370d06b56f766c20e919530b223b556e9abc05198ac142423@ec2-52-6-143-153.compute-1.amazonaws.com:5432/ddgdel8v3uejk3';
 const pool = new pg.Pool({
 	connectionString:conn
 });
